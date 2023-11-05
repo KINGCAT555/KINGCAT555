@@ -16,7 +16,7 @@ local drops = serv:Channel("Dropdowns")
 local drop = drops:Dropdown("Select Map",{"PlanetNamek","HidenLeaFVillage"}, function(map)
 end)
 
-drops:Button("Play", function(map)
+drops:Button("Play", function()
 local args = {
     [1] = "map"
 }
@@ -27,9 +27,6 @@ game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("Globa
         
 end)
 
-drops:Button("Add option", function()
-drop:Add("Option")
-end)
 
 local clrs = serv:Channel("Colorpickers")
 
