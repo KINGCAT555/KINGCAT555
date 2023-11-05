@@ -5,7 +5,14 @@ local GUI = Mercury:Create{
     Theme = Mercury.Themes.Dark,
     Link = "Search"
 }
-local Tab = GUI:Tab{
-	Name = "New Tab",
+local Main = GUI:Tab{
+	Name = "Main",
 	Icon = "rbxassetid://8569322835"
+}
+
+Main:Toggle{
+	Name = "Toggle",
+	StartingState = false,
+	Description = nil,
+	Callback = function(state) end
 }
