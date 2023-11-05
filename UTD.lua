@@ -4,7 +4,7 @@ local win = DiscordLib:Window("discord library")
 
 local serv = win:Server("Preview", "")
 
-local main = serv:Channel("Main")
+local main = serv:Channel("Mains")
 
 main:Toggle("Auto Fish",false, function()
 
