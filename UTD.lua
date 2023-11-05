@@ -14,12 +14,12 @@ end)
 local drops = serv:Channel("Dropdowns")
 
 local drop = drops:Dropdown("Select Map",{"PlanetNamek","HidenLeaFVillage"}, function(map)
-end)
-
-drops:Button("Play", function()
 local args = {
     [1] = "map"
 }
+end)
+
+drops:Button("Play", function()
 
 game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("GlobalInit"):WaitForChild("RemoteEvents"):WaitForChild("PlayerSelectedMap"):FireServer(unpack(args))
 
