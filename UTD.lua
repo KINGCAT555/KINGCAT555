@@ -4,23 +4,10 @@ local win = DiscordLib:Window("discord library")
 
 local serv = win:Server("Preview", "")
 
-local btns = serv:Channel("Buttons")
+local main = serv:Channel("Main")
 
-btns:Button("inf jump", function()
-loadstring(game:HttpGet("https://pastebin.com/raw/WweihvrM"))()
-DiscordLib:Notification("Notification", "inf jump", "Okay!")
-end)
+main:Toggle("Auto Fish",false, function()
 
-btns:Seperator()
-
-btns:Button("Get max level", function()
-DiscordLib:Notification("Notification", "Max level!", "Okay!")
-end)
-
-local tgls = serv:Channel("Toggles")
-
-tgls:Toggle("Auto-Farm",false, function(bool)
-print(bool)
 end)
 
 local sldrs = serv:Channel("Sliders")
