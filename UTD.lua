@@ -6,6 +6,7 @@ local serv = win:Server("Preview", "")
 
 local main = serv:Channel("Main")
 
+
 main:Toggle("Auto Fish",false, function()
 game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("GlobalInit"):WaitForChild("RemoteEvents"):WaitForChild("PlayerCatchFish"):FireServer()
 end)
@@ -13,15 +14,17 @@ end)
 local drops = serv:Channel("Dropdowns")
 
 local drop = drops:Dropdown("Select Map",{"PlanetNamek","HidenLeaFVillage"}, function(map)
+end)
+
+drops:Button("Play", function(map)
 local args = {
     [1] = "map"
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("GlobalInit"):WaitForChild("RemoteEvents"):WaitForChild("PlayerSelectedMap"):FireServer(unpack(args))
-end)
 
-drops:Button("Clear", function()
-drop:Clear()
+game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("GlobalInit"):WaitForChild("RemoteEvents"):WaitForChild("PlayerQuickstartTeleport"):FireServer()
+        
 end)
 
 drops:Button("Add option", function()
