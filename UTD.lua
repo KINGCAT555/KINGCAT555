@@ -1,56 +1,29 @@
-local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/discord%20lib.txt")()
+local RareX = loadstring(game:HttpGet"https://raw.githubusercontent.com/KINGCAT555/KINGCAT555/main/ui.lua")()
 
-local win = DiscordLib:Window("Ultimate Tower Defense")
+local Window = RareX:CreateWindow({
+   Name = "RareX",
+   LoadingTitle = "RareX Ui Loading",
+   LoadingSubtitle = "Ui by Rayfield",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = RareX, -- Create a custom folder for your hub/game
+      FileName = "RareX"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "RareX Key",
+      Subtitle = "Key System",
+      Note = "",
+      FileName = "Key RareX", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"RareXNo1", "ApinanNo1"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
 
-local serv = win:Server("Preview", "")
-
-local main = serv:Channel("Main")
-
-
-main:Toggle("Auto Fish",false, function()
-game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("GlobalInit"):WaitForChild("RemoteEvents"):WaitForChild("PlayerCatchFish"):FireServer()
-end)
-
-local drops = serv:Channel("Dropdowns")
-
-local drop = drops:Dropdown("Select Map",{"PlanetNamek","HidenLeaFVillage"}, function(map)
-
-local args = {
-    [1] = "map"
-}
-game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("GlobalInit"):WaitForChild("RemoteEvents"):WaitForChild("PlayerSelectedMap"):FireServer(unpack(args))
-
-task.wait(1)
-                
-game:GetService("ReplicatedStorage"):WaitForChild("Modules"):WaitForChild("GlobalInit"):WaitForChild("RemoteEvents"):WaitForChild("PlayerQuickstartTeleport"):FireServer()
-        
-end)
-
-drops:Button("Play", function()
-     
-end)
-
-
-local clrs = serv:Channel("Colorpickers")
-
-clrs:Colorpicker("ESP Color", Color3.fromRGB(255,1,1), function(t)
-print(t)
-end)
-
-local textbs = serv:Channel("Textboxes")
-
-textbs:Textbox("Gun power", "Type here!", true, function(t)
-print(t)
-end)
-
-local lbls = serv:Channel("Labels")
-
-lbls:Label("This is just a label.")
-
-local bnds = serv:Channel("Binds")
-
-bnds:Bind("Kill bind", Enum.KeyCode.RightShift, function()
-print("Killed everyone!")
-end)
-
-serv:Channel("by dawid#7205")
+local Tab = Window:CreateTab("Main", 11254763865) -- Title(ชื่อ), Image(รูปภาพ)
